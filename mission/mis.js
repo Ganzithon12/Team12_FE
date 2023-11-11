@@ -18,9 +18,16 @@ fetch('http://localhost:8000/mission/')
     // mission title은 서버에서 받아온 데이터로 바꾸니까, 줄바꿈이 적용이 안되어서 안했습니당..
 
     // 'mis_box' div를 클릭하면 다음 페이지로 이동하고, div의 ID를 쿼리 파라미터로 넘깁니다.
-    misBox.addEventListener('click', function(e) {
-        //만약 여기서 인증한 미션이면 alert 하기.
-        window.location.href = './mis_click.html?mission_id=' + this.id;
+    // 'mis_box' div를 클릭하면 다음 페이지로 이동하고, div의 ID를 쿼리 파라미터로 넘깁니다.
+      misBox.addEventListener('click', function(e) {
+        // 인증한 미션인 경우
+        if (this.style.backgroundColor == "gainsboro") {
+          e.preventDefault(); // 기본 액션 막기
+          alert('이미 인증한 미션입니다.');
+        } else {
+          // 인증하지 않은 미션인 경우
+          window.location.href = './mis_click.html?mission_id=' + this.id;
+        }
       });
     }
   });
@@ -41,7 +48,10 @@ fetch('http://localhost:8000/mission/completed/list', {
             // console.log(data[i].mission)
             let div = document.getElementById(data[i].mission);
             let point = div.querySelector('.point');
-            div.style.backgroundColor="#DCDCDC";
+            let image = div.querySelector('.pic img');
+            div.style.backgroundColor="Gainsboro";
+            point.style.background="DarkGray";
             point.innerText = "인증 완료";
+            image.src = "../images/check.png"
         }
     })

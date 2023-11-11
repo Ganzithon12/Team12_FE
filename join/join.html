@@ -128,7 +128,7 @@
     console.log(pair[0]+ ', '+ pair[1]); 
 }
 
-    fetch("http://localhost:8000/member/signup/", {
+    fetch("https://ganzi-tkzxf.run.goorm.site/member/signup/", {
       method: "POST",
       body: user
     })
@@ -136,6 +136,7 @@
       .then((result) => {
         if (result.msg == "회원가입 성공") {
           //회원가입 성공 시, login페이지로 이동.
+          console.log(result);
           window.location.href = "../login/login.html";
         } else {
           //회원가입 실패 시, alert로 실패 내용 출력.

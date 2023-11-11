@@ -55,7 +55,7 @@ form.addEventListener('submit', (e) => {
         .then(response => response.json())
         .then(data => {
           console.log(data)
-          // window.location.href = './mis.html';
+          window.location.href = './mis.html';
         }) // 서버의 응답을 콘솔에 출력.
         .catch(error => console.log('Error:', error)); // 에러 처리
   }

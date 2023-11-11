@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <script>
+    <script type="module">
       const form = document.getElementById("form");
 
       form.addEventListener("submit", (e) => {
@@ -80,7 +80,7 @@
         const user = new FormData(form);
         console.log(user);
 
-        fetch('http://localhost:8000/member/login/', {
+        fetch('https://ganzi-tkzxf.run.goorm.site/member/login/', {
           method: 'POST',
           body: user,
         })
