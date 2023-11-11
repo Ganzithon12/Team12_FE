@@ -128,23 +128,6 @@
         </div>
       </div>
     </div>
-
-    <script type="module">
-        //유저 정보 불러오기
-        const access_token = localStorage.getItem("access_token");
-        fetch('https://ganzi-tkzxf.run.goorm.site/member/info/', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${access_token}`
-            }
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch((error) => {
-            console.error('Error:', error);
-            });
-
-        
-    </script>
+    <script src="./main.js"></script>
   </body>
 </html>

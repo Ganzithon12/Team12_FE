@@ -45,7 +45,7 @@ form.addEventListener('submit', (e) => {
   if (misForm){
     misForm.append('mission', misBoxId);
 
-    fetch(`http://localhost:8000/mission/${misBoxId}/completed/`, {
+    fetch(`https://ganzi-tkzxf.run.goorm.site/mission/${misBoxId}/completed/`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${access_token}`
@@ -54,8 +54,9 @@ form.addEventListener('submit', (e) => {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data)
-          window.location.href = './mis.html';
+          console.log(data);
+          // window.location.href = './mis.html';
+          window.location.href = './mis.html?refresh=true';
         }) // 서버의 응답을 콘솔에 출력.
         .catch(error => console.log('Error:', error)); // 에러 처리
   }

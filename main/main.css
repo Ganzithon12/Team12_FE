@@ -172,6 +172,10 @@ img {
   position: relative;
 }
 
+.img-circle {
+  border-radius: 50%;
+}
+
 .medal {
   width: 25px;
   height: 25px;

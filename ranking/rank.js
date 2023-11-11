@@ -1,6 +1,6 @@
 //유저 정보 불러오기
 const access_token = localStorage.getItem("access_token");
-fetch('http://localhost:8000/member/rank/', {
+fetch('https://ganzi-tkzxf.run.goorm.site/member/rank/', {
     method: 'GET',
     headers: {
         'Authorization': `Bearer ${access_token}`
@@ -16,7 +16,9 @@ fetch('http://localhost:8000/member/rank/', {
         let myDeung = myRank.querySelector('.deung');
         let myPer = myRank.querySelector('.sangwe');
         
-        myImage.src = result.data.user.profile_image;
+        // myImage.src = result.data.user.profile_image;
+        myImage.src = `https://ganzi-tkzxf.run.goorm.site${result.data.user.profile_image}`;
+        myImage.classList.add('img-circle');
         myName.innerText = result.data.user.nickname;
         myPoint.innerText = result.data.user.point + 'p';
         myDeung.innerText = result.data.user.rank + '등';
@@ -39,7 +41,9 @@ fetch('http://localhost:8000/member/rank/', {
             let profileDiv = document.createElement('div');
             profileDiv.className = 'profile';
             let img = document.createElement('img');
-            img.src = user.profile_image;
+            // img.src = user.profile_image;
+            img.classList.add('img-circle');
+            img.src = `https://ganzi-tkzxf.run.goorm.site${user.profile_image}`;
             profileDiv.appendChild(img);
 
             let nameDiv = document.createElement('div');

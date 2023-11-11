@@ -24,6 +24,10 @@ body {
   padding: 0px;
 }
 
+.img-circle {
+  border-radius: 50%;
+}
+
 * {
   font-family: Pretendard, "Noto Sans KR", sans-serif;
   font-style: normal;

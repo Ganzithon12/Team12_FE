@@ -1,10 +1,9 @@
 //미션 고유 아이디 부여하기 + 서버에서 데이터 받아와서 출력.
-fetch('http://localhost:8000/mission/')
+fetch('https://ganzi-tkzxf.run.goorm.site/mission/')
 .then(response => response.json())
 .then(data => {
 
   let misBoxes = document.querySelectorAll('.mis_box'); // 'mis_box' 클래스를 가진 모든 요소를 선택합니다.
-
   misBoxes.forEach(function(misBox, index) { // 각 'mis_box'에 대해 함수를 실행합니다.
     if (data[index]) { // 반환된 데이터가 해당 인덱스에 있는 경우
       let pic = misBox.querySelector('.pic img');
@@ -21,6 +20,7 @@ fetch('http://localhost:8000/mission/')
     // 'mis_box' div를 클릭하면 다음 페이지로 이동하고, div의 ID를 쿼리 파라미터로 넘깁니다.
       misBox.addEventListener('click', function(e) {
         // 인증한 미션인 경우
+        console.log(1);
         if (this.style.backgroundColor == "gainsboro") {
           e.preventDefault(); // 기본 액션 막기
           alert('이미 인증한 미션입니다.');
@@ -36,7 +36,7 @@ fetch('http://localhost:8000/mission/')
 
 //인증한 미션은 이미지 바꿔주기
 const access_token = localStorage.getItem("access_token");
-fetch('http://localhost:8000/mission/completed/list', {
+fetch('https://ganzi-tkzxf.run.goorm.site/mission/completed/list', {
     method: 'GET',
     headers: {
     'Authorization': `Bearer ${access_token}`

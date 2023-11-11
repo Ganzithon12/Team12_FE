@@ -101,22 +101,23 @@
 
     <script>
       const access_token = localStorage.getItem("access_token");
-      fetch('http://localhost:8000/member/rank/', {
+      fetch('https://ganzi-tkzxf.run.goorm.site/member/info/', {
           method: 'GET',
           headers: {
               'Authorization': `Bearer ${access_token}`
           }
           })
           .then(response => response.json())
-    .then(result => {
-        //자신의 프로필, 닉네임, 포인트 출력
-        let myImage = document.querySelector('.profile');
-        let myName = document.querySelector('.name');
-        let myPoint = document.querySelector('.mypoint');
-        myImage.src = result.data.user.profile_image;
-        myName.innerText = result.data.user.nickname + '님';
-        myPoint.innerText = result.data.user.point + 'p';
-    })
+          .then(result => {
+              //자신의 프로필, 닉네임, 포인트 출력
+              let myImage = document.querySelector('.profile');
+              let myName = document.querySelector('.name');
+              let myPoint = document.querySelector('.point');
+              myImage.classList.add('img-circle');
+              myImage.src = `https://ganzi-tkzxf.run.goorm.site${result.data.profile_image}`;
+              myName.innerText = result.data.nickname + '님';
+              myPoint.innerText = result.data.point + 'p';
+          })
     </script>
   </body>
 </html>
